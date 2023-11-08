@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
+import Link from 'next/link';
 
 // Configure o cliente Supabase com suas credenciais
 const supabase = createClient('https://izuwtwjojmuvomlduwsi.supabase.co',
@@ -26,13 +27,18 @@ export default function DatabaseStatus() {
     }, []);
 
     return (
-        <div>
-            <h1>Estado da Conexão com o Banco de Dados Supabase</h1>
-            {connected ? (
-                <p>Conectado ao banco de dados Supabase</p>
-            ) : (
-                <p>Não foi possível conectar ao banco de dados Supabase</p>
-            )}
-        </div>
+        <>
+            <div>
+                <h1>Estado da Conexão com o Banco de Dados Supabase</h1>
+                {connected ? (
+                    <p>Conectado ao banco de dados Supabase</p>
+                ) : (
+                    <p>Não foi possível conectar ao banco de dados Supabase</p>
+                )}
+            </div>
+            <div>
+                <Link href="/">Voltar</Link>
+            </div>
+        </>
     );
 }
