@@ -2,7 +2,7 @@ import { estilo } from './estilo.css';
 import { useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import Header from '../../components/Header'
-import Link from 'next/link';
+import SemAcesso from '../../components/SemAcesso'
 
 
 const supabase = createClient('https://izuwtwjojmuvomlduwsi.supabase.co',
@@ -28,7 +28,7 @@ export default function LoginPage() {
                 setError(error.message);
             } else {
                 // Redirecione o usuário para a página após o login bem-sucedido
-                window.location.href = '/conexao';
+                window.location.href = '/home';
             }
 
         } catch (error) {
@@ -63,10 +63,7 @@ export default function LoginPage() {
                     <button onClick={handleLogin} className='Button_Login'>Login</button>
                     <button onClick={Register} className='Button_Login'>Cadastre-se</button>
                     <div className='Entrar_Sem_Acesso'>
-                        <Link href="/">Entrar sem fazer login</Link>
-                    </div>
-                    <div>
-                        <Link href="/">Voltar</Link>
+                        <SemAcesso></SemAcesso>
                     </div>
 
                 </main>

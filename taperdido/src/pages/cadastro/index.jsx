@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import Header from '../../components/Header'
+import SemAcesso from '../../components/SemAcesso'
+
 import Link from 'next/link';
 import { estilo } from './estilo.css';
 
@@ -65,7 +67,7 @@ export default function InsertPage() {
 
                     <button onClick={RegisterUser} className='Button_Cadastro'>Crie sua Conta</button>
                     <div className='Entrar_Sem_Acesso'>
-                        <Link href="/">Entrar sem fazer login</Link>
+                        <SemAcesso></SemAcesso>
                     </div>
 
                 </main>
